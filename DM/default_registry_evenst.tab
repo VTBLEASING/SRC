@@ -1,0 +1,32 @@
+create table DM.DEFAULT_REGISTRY_EVENST
+(
+  client_inn         VARCHAR2(100),
+  client_id          NUMBER,
+  contract_id        NUMBER,
+  contract_num_full  VARCHAR2(1014),
+  contract_num       VARCHAR2(1000),
+  app_name           VARCHAR2(112),
+  app_name_shrt      VARCHAR2(136),
+  app_1c_num         NUMBER(14),
+  full_client_ru_nam VARCHAR2(1000 CHAR),
+  rehiring_dt        DATE,
+  group_key          NUMBER,
+  rehiring_flg       CHAR(1),
+  date_default       DATE,
+  date_default_cncl  DATE,
+  default_event      VARCHAR2(97),
+  contract_app_key   NUMBER(14),
+  source_item        VARCHAR2(7)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

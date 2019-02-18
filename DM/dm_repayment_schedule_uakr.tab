@@ -1,0 +1,38 @@
+create table DM.DM_REPAYMENT_SCHEDULE_UAKR
+(
+  snapshot_dt     DATE,
+  snapshot_cd     VARCHAR2(30),
+  snapshot_month  VARCHAR2(30),
+  contract_key    NUMBER,
+  tranche_num     NUMBER,
+  pay_dt          DATE,
+  currency_key    NUMBER,
+  fact_pay_amt    NUMBER,
+  plan_pay_amt    NUMBER,
+  leasing_pay_amt NUMBER,
+  supply_pay_amt  NUMBER,
+  pay_amt         NUMBER,
+  nil_amt         NUMBER,
+  interest_amt    NUMBER,
+  principal_amt   NUMBER,
+  dnil_amt        NUMBER,
+  ka              NUMBER,
+  kb              NUMBER,
+  process_key     NUMBER,
+  insert_dt       DATE,
+  branch_key      NUMBER,
+  nil_orig_amt    NUMBER,
+  underpay_leas   NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

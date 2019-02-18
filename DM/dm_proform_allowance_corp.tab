@@ -1,0 +1,173 @@
+create table DM.DM_PROFORM_ALLOWANCE_CORP
+(
+  snapshot_dt                    DATE,
+  contract_app_num               VARCHAR2(200),
+  contract_app_id_num            VARCHAR2(200),
+  asset_type                     VARCHAR2(150),
+  comp_nam                       VARCHAR2(150),
+  short_nam                      VARCHAR2(150),
+  auto_flg                       CHAR(3),
+  client_id                      VARCHAR2(100),
+  full_client_ru_nam             VARCHAR2(100),
+  short_client_ru_nam            VARCHAR2(100),
+  flg_vtb_group                  CHAR(3),
+  vtbl_flg                       CHAR(3),
+  contract_num                   VARCHAR2(100),
+  contract_num_full              VARCHAR2(100),
+  leasing_subject_desc           VARCHAR2(1000),
+  asset_type_col                 VARCHAR2(500),
+  lgd_subject_type_cd            VARCHAR2(200),
+  start_dt                       DATE,
+  maturity_dt                    DATE,
+  eff_prc_rate                   NUMBER,
+  currency_letter_cd             CHAR(3),
+  def_flg                        CHAR(1),
+  def_sgn                        CHAR(1),
+  client_status                  CHAR(10),
+  ovd_days_max                   NUMBER,
+  rating_agency_ru_nam_reg_dt    VARCHAR2(100),
+  ranging_model_reg_dt           VARCHAR2(100),
+  credit_rating_reg_dt           VARCHAR2(50),
+  rating_number_reg_dt           NUMBER,
+  rating_agency_ru_nam           VARCHAR2(100),
+  ranging_model                  VARCHAR2(100),
+  credit_rating                  VARCHAR2(50),
+  rating_number                  NUMBER,
+  step                           NUMBER,
+  nuts_number                    NUMBER,
+  stage                          CHAR(4),
+  stage_prev_mnth                CHAR(4),
+  change_stage                   CHAR(10),
+  stage_quarter_begin            VARCHAR2(100),
+  stage_change_quarter_begin     VARCHAR2(200),
+  stage_year_begin               VARCHAR2(100),
+  stage_change_year_begin        VARCHAR2(200),
+  credit_rating_prev_mnth        VARCHAR2(10),
+  pd1_macro                      NUMBER,
+  pd2_macro                      NUMBER,
+  pd3_macro                      NUMBER,
+  pd4_macro                      NUMBER,
+  pd5_macro                      NUMBER,
+  pd6_macro                      NUMBER,
+  pd7_macro                      NUMBER,
+  pd8_macro                      NUMBER,
+  pd9_macro                      NUMBER,
+  pd10_macro                     NUMBER,
+  pd1_marg                       NUMBER,
+  pd2_marg                       NUMBER,
+  pd3_marg                       NUMBER,
+  pd4_marg                       NUMBER,
+  pd5_marg                       NUMBER,
+  pd6_marg                       NUMBER,
+  pd7_marg                       NUMBER,
+  pd8_marg                       NUMBER,
+  pd9_marg                       NUMBER,
+  pd10_marg                      NUMBER,
+  ecls                           NUMBER,
+  ecls1                          NUMBER,
+  ind_res                        NUMBER,
+  is_res_null                    CHAR(12),
+  final_res                      NUMBER,
+  res_prev_mnth                  NUMBER,
+  res_change_mnth_begin          NUMBER,
+  res_quarter_begin              NUMBER,
+  res_change_quarter_begin       NUMBER,
+  res_year_begin                 NUMBER,
+  res_change_year_begin          NUMBER,
+  pl_mnth_begin_rub              NUMBER,
+  pl_quarter_begin_rub           NUMBER,
+  pl_year_begin_rub              NUMBER,
+  res_rub                        NUMBER,
+  res_prev_mnth_rub              NUMBER,
+  res_change_mnth_begin_rub      NUMBER,
+  res_quarter_begin_rub          NUMBER,
+  res_change_quarter_begin_rub   NUMBER,
+  res_year_begin_rub             NUMBER,
+  res_change_year_begin_rub      NUMBER,
+  rate                           NUMBER,
+  rate_prev_mnth                 NUMBER,
+  rate_quarter_begin             NUMBER,
+  rate_year_begin                NUMBER,
+  rate_change_mnth_begin         NUMBER,
+  rate_change_quarter_begin      NUMBER,
+  rate_change_year_begin         NUMBER,
+  ead                            NUMBER,
+  ead_prev_mnth                  NUMBER,
+  ead_change_mnth_begin          NUMBER,
+  ead_quarter_begin              NUMBER,
+  ead_change_quarter_begin       NUMBER,
+  ead_year_begin                 NUMBER,
+  ead_change_year_begin          NUMBER,
+  ead_rub                        NUMBER,
+  ead_prev_mnth_rub              NUMBER,
+  ead_change_mnth_begin_rub      NUMBER,
+  ead_quarter_begin_rub          NUMBER,
+  ead_change_quarter_begin_rub   NUMBER,
+  ead_year_begin_rub             NUMBER,
+  ead_change_year_begin_rub      NUMBER,
+  ovd_days                       NUMBER,
+  nil_wo_sa                      NUMBER,
+  overdue_amount                 NUMBER,
+  impairment_category            VARCHAR2(100),
+  impairment_category_prev_month VARCHAR2(100),
+  impairment_category_change     VARCHAR2(100),
+  credit_losses                  VARCHAR2(100),
+  credit_losses_prev_month       VARCHAR2(100),
+  credit_losses_change           VARCHAR2(100),
+  closing_rate                   NUMBER,
+  average_rate                   NUMBER,
+  contract_key                   NUMBER,
+  contract_app_key               NUMBER,
+  script_cd                      NUMBER,
+  insert_dttm                    DATE,
+  process_key                    NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+create index DM.I#PROFORM_ALLOW_CORP#X1 on DM.DM_PROFORM_ALLOWANCE_CORP (SNAPSHOT_DT, SCRIPT_CD)
+  tablespace DM_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DM.I#PROFORM_ALLOW_CORP#X2 on DM.DM_PROFORM_ALLOWANCE_CORP (CONTRACT_KEY)
+  tablespace DM_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DM.I#PROFORM_ALLOW_CORP#X3 on DM.DM_PROFORM_ALLOWANCE_CORP (CONTRACT_APP_KEY)
+  tablespace DM_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

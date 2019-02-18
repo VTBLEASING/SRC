@@ -1,0 +1,28 @@
+create table DM.SAA_FACT_PROVISIONS
+(
+  snapshot_dt       DATE not null,
+  contract_key      NUMBER not null,
+  tranche_num       VARCHAR2(100),
+  ipo_drive_flg     CHAR(1),
+  bal_amt           NUMBER,
+  contract_reg_type VARCHAR2(100),
+  ipo_flg           CHAR(1),
+  ipo_type          VARCHAR2(100),
+  provisions_amt    NUMBER,
+  file_id           NUMBER,
+  process_key       NUMBER,
+  valid_from_dttm   DATE,
+  valid_to_dttm     DATE not null
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

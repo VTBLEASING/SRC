@@ -1,0 +1,22 @@
+create table DM.DM_WORK_STATUSES
+(
+  report_dt           DATE,
+  contract_key        NUMBER,
+  status_1c_desc      VARCHAR2(500),
+  contract_status_key NUMBER,
+  subject_status_key  NUMBER,
+  state_status_key    NUMBER,
+  insert_dt           DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

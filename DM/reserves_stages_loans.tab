@@ -1,0 +1,44 @@
+create table DM.RESERVES_STAGES_LOANS
+(
+  stage                CHAR(50),
+  stage_prev_mnth      CHAR(50),
+  snapshot_dt          DATE,
+  auto_flg             CHAR(50),
+  script_name          VARCHAR2(150),
+  ead_year_begin       NUMBER,
+  ead_quarter_begin    NUMBER,
+  ead_month_begin      NUMBER,
+  ead_snapshot_dt      NUMBER,
+  gbs_bef_allwn        NUMBER,
+  res_year_begin       NUMBER,
+  res_quarter_begin    NUMBER,
+  res_month_begin      NUMBER,
+  res_snapshot_dt      NUMBER,
+  res_snapshot_dt_prf  NUMBER,
+  res_snapshort_dt_bal NUMBER,
+  pl_year_begin        NUMBER,
+  pl_quarter_begin     NUMBER,
+  pl_month_begin       NUMBER,
+  qty_year_begin       NUMBER,
+  qty_qrtr_begin       NUMBER,
+  qty_mnth_begin       NUMBER,
+  qty_year_begin_prf   NUMBER,
+  qty_qrtr_begin_prf   NUMBER,
+  qty_mnth_begin_prf   NUMBER,
+  vtbl_flg             CHAR(50),
+  comp_nam             VARCHAR2(150),
+  flg_vtb_group        CHAR(50),
+  short_nam            VARCHAR2(150)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

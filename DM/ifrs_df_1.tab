@@ -1,0 +1,34 @@
+create table DM.IFRS_DF_1
+(
+  snapshot_dt       VARCHAR2(50),
+  contract_app_key  NUMBER,
+  contract_key      NUMBER,
+  client_key        NUMBER,
+  facility          VARCHAR2(1000),
+  app               VARCHAR2(112),
+  facility_app      VARCHAR2(1113),
+  dfk               VARCHAR2(1020 CHAR),
+  eff_rate          NUMBER(15,8),
+  ftp               NUMBER(10,3),
+  start_dt          VARCHAR2(50),
+  maturity_dt       VARCHAR2(50),
+  currency_nam      VARCHAR2(10 CHAR),
+  date_mnthend      VARCHAR2(50),
+  date_mnthstart    VARCHAR2(50),
+  nil               NUMBER(15,2),
+  nil_avg           NUMBER,
+  trunsfer_forecast NUMBER,
+  ead_fli           NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

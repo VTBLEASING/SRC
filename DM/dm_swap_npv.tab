@@ -1,0 +1,40 @@
+create table DM.DM_SWAP_NPV
+(
+  scenario_desc  VARCHAR2(30),
+  snapshot_dt    DATE,
+  snapshot_month VARCHAR2(30),
+  snapshot_year  NUMBER,
+  branch_key     NUMBER,
+  contract_key   NUMBER,
+  currency1_key  NUMBER,
+  currency2_key  NUMBER,
+  start_dt       DATE,
+  buy1_amt       NUMBER,
+  start_ex_rate  NUMBER,
+  sell1_amt      NUMBER,
+  end_dt         DATE,
+  sell2_amt      NUMBER,
+  factor_k1_rate NUMBER,
+  sell2_disc_amt NUMBER,
+  end_ex_rate    NUMBER,
+  buy2_amt       NUMBER,
+  factor_k2_rate NUMBER,
+  buy2_disc_amt  NUMBER,
+  days_cnt       NUMBER,
+  balance_amt    NUMBER,
+  margin_rate    NUMBER,
+  process_key    NUMBER,
+  insert_dt      DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

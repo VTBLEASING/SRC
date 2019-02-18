@@ -1,0 +1,35 @@
+create table DM.DM_EUROPE_REPORT
+(
+  snapshot_dt        DATE,
+  contract_num       VARCHAR2(200),
+  contract_id_cd     VARCHAR2(200),
+  presentation       VARCHAR2(200),
+  concat_pril        VARCHAR2(200),
+  full_client_ru_nam VARCHAR2(200),
+  col_mircode        VARCHAR2(20),
+  branch_nam         VARCHAR2(200),
+  startdate          DATE,
+  maturitydate       DATE,
+  currency_en_nam    VARCHAR2(20),
+  xirr               NUMBER,
+  gil_report_dt      NUMBER,
+  nil_report_dt      NUMBER,
+  uli_report_dt      NUMBER,
+  fli_report_dt      NUMBER,
+  fli_report_mnth    NUMBER,
+  date_              DATE,
+  pmnt_amt           NUMBER,
+  contract_key       NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

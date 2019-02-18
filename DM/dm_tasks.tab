@@ -1,0 +1,40 @@
+create table DM.DM_TASKS
+(
+  task_key            NUMBER,
+  inquiry_key         NUMBER,
+  start_dt            DATE,
+  start_month         DATE,
+  close_dt            DATE,
+  close_month         DATE,
+  close_flg           NUMBER,
+  leasing_deal_key    NUMBER,
+  crosys_division_nam VARCHAR2(1000),
+  full_amt            NUMBER,
+  control_amt         NUMBER,
+  norm_amt            NUMBER,
+  task_type_nam       VARCHAR2(4000),
+  crm_status          VARCHAR2(4000),
+  crosys_status       VARCHAR2(4000),
+  repeat_flg          VARCHAR2(10),
+  source_cd           VARCHAR2(10),
+  rehiring_flg        NUMBER,
+  insert_dt           DATE,
+  approval_route_subj VARCHAR2(1000),
+  owner_user_nam      VARCHAR2(1000),
+  risk_resolution     VARCHAR2(4000),
+  approval_resolution VARCHAR2(4000),
+  duplicate_flg       VARCHAR2(20),
+  approval_result_nam VARCHAR2(1000)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

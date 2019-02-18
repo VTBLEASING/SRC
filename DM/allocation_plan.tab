@@ -1,0 +1,35 @@
+create table DM.ALLOCATION_PLAN
+(
+  month_dt                  DATE,
+  group_key                 NUMBER,
+  line_key                  NUMBER,
+  line_source_key           NUMBER,
+  stage                     VARCHAR2(200),
+  correction_flg            VARCHAR2(1),
+  cc_from_00                VARCHAR2(10),
+  cc_from_01                VARCHAR2(10),
+  cc_from_02                VARCHAR2(10),
+  cc_from                   VARCHAR2(10),
+  cc_to                     VARCHAR2(10),
+  navision_from             NUMBER,
+  navision_to               NUMBER,
+  budget_item_from          NUMBER,
+  budget_item_to            NUMBER,
+  driver                    NUMBER,
+  amnt_plan_s               NUMBER,
+  amnt_after_alloc_plan_s   NUMBER,
+  amnt_plan_cum             NUMBER,
+  amnt_after_alloc_plan_cum NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

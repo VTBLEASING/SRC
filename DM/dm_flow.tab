@@ -1,0 +1,25 @@
+create table DM.DM_FLOW
+(
+  l_key       NUMBER,
+  branch_key  NUMBER,
+  pay_dt      DATE,
+  summ        NUMBER,
+  sum_prev    NUMBER,
+  leasing_pay NUMBER,
+  supply_pay  NUMBER,
+  pay_amt     NUMBER,
+  under_l_pay NUMBER,
+  rid         NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

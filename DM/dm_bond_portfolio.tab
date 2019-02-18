@@ -1,0 +1,34 @@
+create table DM.DM_BOND_PORTFOLIO
+(
+  snapshot_dt      DATE,
+  bond_key         NUMBER,
+  contract_key     NUMBER,
+  issue_volume_num NUMBER,
+  issue_volume_cnt NUMBER,
+  bal_amt          NUMBER,
+  fair_val_amt     NUMBER,
+  buy_amt          NUMBER,
+  ncd_amt          NUMBER,
+  ncd_rate         NUMBER,
+  quantity_cnt     NUMBER,
+  bal_quantity_cnt NUMBER,
+  factor_amt       NUMBER,
+  calc_ncd_amt     NUMBER,
+  process_key      NUMBER,
+  insert_dt        DATE,
+  fct_sum_flow     NUMBER,
+  calc_ncd_amt_r   NUMBER,
+  fct_sum_flow_r   NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

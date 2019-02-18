@@ -1,0 +1,34 @@
+create table DM.DM_IRS_PAYMENTS
+(
+  contract_key        NUMBER,
+  snapshot_dt         DATE,
+  payment_num         NUMBER,
+  pay_period_begin_dt DATE,
+  pay_period_end_dt   DATE,
+  period_term_cnt     NUMBER,
+  calc_base_amt       NUMBER,
+  main_debt_amt       NUMBER,
+  amort_amt           NUMBER,
+  fix_rate            NUMBER,
+  payment_fix_amt     NUMBER,
+  float_rate          NUMBER,
+  payment_float_amt   NUMBER,
+  result_amt          NUMBER,
+  ex_rate             NUMBER,
+  reval_rur_amt       NUMBER,
+  valid_from_dttm     DATE,
+  valid_to_dttm       DATE,
+  process_key         NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

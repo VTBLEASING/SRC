@@ -1,0 +1,19 @@
+create table DM.TEMP_CORR_FLOW_UNDERPAY
+(
+  l_key              NUMBER,
+  branch_key         NUMBER,
+  pay_amt_cur        NUMBER,
+  pay_amt_cur_supply NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

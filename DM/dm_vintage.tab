@@ -1,0 +1,42 @@
+create table DM.DM_VINTAGE
+(
+  report_dt            DATE,
+  snapshot_dt          DATE,
+  contract_key         NUMBER,
+  term_amt             NUMBER,
+  term_amt_tax         NUMBER,
+  overdue_amt          NUMBER,
+  overdue_amt_tax      NUMBER,
+  term_amt_risk        NUMBER,
+  overdue_dt           DATE,
+  overdue_cnt          NUMBER,
+  max_overdue_cnt      NUMBER,
+  region               VARCHAR2(200),
+  act_dt               DATE,
+  lease_month          DATE,
+  transmit_subject_nam VARCHAR2(500),
+  advance_pay_dt       DATE,
+  advance_rub          NUMBER,
+  cost_rub             NUMBER,
+  finance_amt          NUMBER,
+  status_1c_desc       VARCHAR2(500),
+  contract_status_key  NUMBER,
+  subject_status_key   NUMBER,
+  state_status_key     NUMBER,
+  age                  NUMBER,
+  confiscate_flg       NUMBER,
+  insure_flg           NUMBER,
+  insert_dt            DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

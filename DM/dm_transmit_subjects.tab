@@ -1,0 +1,42 @@
+create table DM.DM_TRANSMIT_SUBJECTS
+(
+  lease_month           DATE,
+  contract_id_cd        VARCHAR2(500),
+  act_dt                DATE,
+  transmit_subject_nam  VARCHAR2(4000),
+  contract_key          NUMBER,
+  contract_currency     VARCHAR2(255),
+  leasing_deal_key      NUMBER,
+  leasing_subject_key   NUMBER,
+  region                VARCHAR2(500),
+  srok                  NUMBER,
+  pay_dt                DATE,
+  advance               NUMBER,
+  advance_currency      VARCHAR2(255),
+  advance_rub           NUMBER,
+  advance_exchange_rate NUMBER,
+  cost_amt              NUMBER,
+  cost_currency         VARCHAR2(255),
+  cost_rub              NUMBER,
+  cost_exchange_rate    NUMBER,
+  finance_amt           NUMBER,
+  first_fin_amt         NUMBER,
+  insert_dt             DATE,
+  supply_amt            NUMBER,
+  supply_rub            NUMBER,
+  insurance_amt         NUMBER,
+  insurance_rub         NUMBER,
+  first_fin_amt_clients NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

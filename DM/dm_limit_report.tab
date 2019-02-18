@@ -1,0 +1,40 @@
+create table DM.DM_LIMIT_REPORT
+(
+  snapshot_dt        DATE,
+  contract_key       NUMBER,
+  contract_id_cd     VARCHAR2(100 CHAR),
+  contract_app_key   NUMBER,
+  client_key         NUMBER,
+  full_client_ru_nam VARCHAR2(1000 CHAR),
+  contract_num       VARCHAR2(1000),
+  app_num            NUMBER,
+  nil_nds            NUMBER,
+  nil_no_nds         NUMBER,
+  ovd_nds            NUMBER,
+  ovd_no_nds         NUMBER,
+  flg                NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DM.I#DM_LIMIT_REPORT#I1 on DM.DM_LIMIT_REPORT (SNAPSHOT_DT, CONTRACT_KEY, CONTRACT_APP_KEY)
+  tablespace DM_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

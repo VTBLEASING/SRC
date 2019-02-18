@@ -1,0 +1,19 @@
+create table DM.DM_NIL_OWNBILLS
+(
+  bill_key NUMBER,
+  xirr     NUMBER,
+  nil      NUMBER,
+  odttm    DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

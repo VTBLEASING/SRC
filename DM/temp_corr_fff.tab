@@ -1,0 +1,24 @@
+create table DM.TEMP_CORR_FFF
+(
+  l_key           NUMBER,
+  branch_key      NUMBER,
+  pay_dt          DATE,
+  summ            NUMBER,
+  sum_prev        NUMBER,
+  excptn_zero_div NUMBER,
+  report_dt       DATE,
+  flag            NUMBER,
+  zero_div_flg    NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,17 @@
+create table DM.KAV_TT
+(
+  dd      DATE,
+  file_id NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

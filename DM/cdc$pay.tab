@@ -1,0 +1,21 @@
+create table DM.CDC$PAY
+(
+  contract_key NUMBER,
+  snapshot_dt  DATE
+)
+tablespace DM_DATA
+  pctfree 1
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+alter table DM.CDC$PAY
+  add constraint FK#PAY#SNAPSHOT_DT foreign key (SNAPSHOT_DT)
+  references DM.CDC$PAY_SNAPSHOT (SNAPSHOT_DT) on delete cascade;
+

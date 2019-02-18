@@ -1,0 +1,17 @@
+create table DM.DM_XIRR_CONTRACT
+(
+  contract_id NUMBER,
+  report_dt   DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

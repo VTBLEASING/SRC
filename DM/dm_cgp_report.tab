@@ -1,0 +1,38 @@
+create table DM.DM_CGP_REPORT
+(
+  snapshot_dt      DATE,
+  contract_key     NUMBER,
+  contract_app_key NUMBER,
+  client_key       NUMBER,
+  currency_cd      NUMBER,
+  contract_id_cd   VARCHAR2(513),
+  tranche_number   VARCHAR2(112),
+  date_            DATE,
+  sum_             NUMBER(15,2),
+  sum_discount     NUMBER,
+  xirr             NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DM.I#DM_CGP_REPORT#SNAPSHOT_DT on DM.DM_CGP_REPORT (SNAPSHOT_DT)
+  tablespace DM_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

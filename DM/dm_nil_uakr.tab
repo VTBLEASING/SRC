@@ -1,0 +1,33 @@
+create table DM.DM_NIL_UAKR
+(
+  contract_id   NUMBER,
+  contract_date DATE,
+  fact_amt      NUMBER,
+  plan_amt      NUMBER,
+  leasing_amt   NUMBER,
+  supply_amt    NUMBER,
+  nil_pers      NUMBER,
+  nil           NUMBER,
+  nil_diff      NUMBER,
+  odttm         DATE,
+  ka            NUMBER,
+  nil_ka        NUMBER,
+  kb            NUMBER,
+  nil_ka_kb     NUMBER,
+  pay_amt       NUMBER,
+  branch_key    NUMBER,
+  snapshot_cd   VARCHAR2(30),
+  underpay_leas NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

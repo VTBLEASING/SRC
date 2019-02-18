@@ -1,0 +1,191 @@
+create materialized view DM.MV$LEASING_CONTRACTS
+build deferred
+refresh force on demand
+as
+WITH
+  -- [APOLYAKOV 10.08.2016]: В 1С есть ссылка перенайма на договор, с которого произошел перенайм. Данное поле необходимо для определения, был ли перенайм или он удален/отменен.
+  tree as
+            (SELECT
+                  level as level_,
+                  contract_key,
+                  contract_rehiring_key,
+                  contract_id_cd,
+                  contract_num,
+                  CONNECT_BY_ROOT contract_num as Root,
+                  CONNECT_BY_ROOT contract_key as Root_key
+                  ,count(1) over(partition by CONNECT_BY_ROOT contract_key) as nodes_by_root
+            FROM (select * from dwh.contracts
+            where valid_to_dttm = to_date ('01.01.2400', 'dd.mm.yyyy')
+            and nvl (delete_flg, 0) != 1
+            -- [apolyakov 10.08.2016]: если два основных и не удаленных (да-да и такое бывает) :))))))
+            and contract_kind_key = 4
+            )
+                START WITH contract_rehiring_key is null
+                      CONNECT BY  PRIOR contract_key = contract_rehiring_key),
+  tt
+        AS (SELECT /*+ MATERIALIZE   */
+                  lc.contract_key,
+                   c.contract_id_cd,
+                   vm.crm_contract_key,
+                   vm.app_num, --ov 02/08/2018
+                   c.client_key,
+                   /*CASE
+                      WHEN NVL (c.rehiring_flg, '0') = '1' THEN 'Да'
+                      ELSE 'Нет'
+                   END*/
+                   NVL(rehiring_flg,'0')   rehiring_flg,
+                   lc.contract_cd,
+                   lc.contract_num,
+                   lc.contract_fin_kind_desc,
+                   lc.manager_nam,
+                   lc.auto_flg,
+                   lc.leasing_asset_kind_desc,
+                   lc.leasing_subject_desc,
+                   lc.leasing_start_dt,
+                   lc.leasing_close_dt,
+                   lc.lessee_bal_flg,
+                   lc.start_dt,
+                   lc.end_dt,
+                   lc.currency_key,
+                   lc.valid_from_dttm,
+                   lc.valid_to_dttm,
+                   lc.process_key,
+                   lc.file_id,
+                   lc.penalty_rate,
+                   lc.crm_contract_cd,
+                   lc.code1c_cd,
+                   --lc.contract_key, lc.contract_num,lc.start_dt, lc.end_dt,
+                   cur.currency_letter_cd,
+                   vm.leasing_subject_key,
+                   vm.leasing_deal_key,
+                   vm.leasing_offer_key,
+                   vm.crm_client_key,
+                   -- [apolyakov 11.04.2017]: добавлено для определения NIL по группе контрагентов
+                   vm.ACCOUNT_GROUP_KEY,
+                   -- [APOLYAKOV 09.08.2016]: Добавление для случая, если признак перенайма неправильно выгружен из 1С, однако у сделки два и более договоров.
+                   COUNT (c.CONTRACT_ID_CD)
+                   OVER (
+                      PARTITION BY c.CONTRACT_ID_CD
+                      )
+                   multiplicity_flg,
+                   MAX (NVL (c.rehiring_flg, 0))
+                      OVER (PARTITION BY c.CONTRACT_ID_CD)
+                      is_rehiring,
+                   ROW_NUMBER ()
+                   OVER (
+                      PARTITION BY c.CONTRACT_ID_CD
+                      ORDER BY case when tree.root_key is not null then NVL (is_closed_contract, 0) else '1' end ASC, NVL(c.rehiring_flg, '0') desc,  close_dt DESC,
+                                    -- [apolyakov 11.08.2016]: необходимо чтобы удаленные договоры никогда не были актуальными, а из действительных актуальными были только последние перенаймы по дате начала
+                                    nvl (tree.root_key, 0) desc, nvl (c.rehiring_dt, to_date ('01.01.0001', 'dd.mm.yyyy')) desc)
+                      rn,
+                   t.root_key,
+                   -- [apolyakov 09.08.2016]: добавление поля : Дата начала действия перенайма (в случае основного 0001 год)
+                   nvl (c.rehiring_dt, to_date ('01.01.0001', 'dd.mm.yyyy')) as rehiring_start_dt,
+                   -- [apolyakov 09.08.2016]: добавление поля : Дата окончания действия перенайма (в случае последнего 3999 год). Среди тех, по которым реально был перенайм (tree без удаленных)
+                   nvl (lead (c.rehiring_dt) over (partition by tree.root_key
+                                              order by nvl (c.rehiring_dt, to_date ('01.01.0001', 'dd.mm.yyyy')) asc), to_date ('31.12.3999', 'dd.mm.yyyy')
+                        )
+                         as rehiring_end_dt,
+                   -- [APOLYAKOV 10.08.2016]: Добавление root договора для дальнейшего анализа.
+                   tree.root_key as c_root
+                   --,tree.n_Item
+                   /*case
+                        when tt.root_key is not null
+                            then nvl (c.contract_rehiring_key, c.contract_key)
+                        else null
+                   end contract_rehiring_key*/
+                   ,vm.doc_from
+                   ,vm.pay_sum
+                   ,tree.nodes_by_root
+                    ,count(tree.root_key) over (partition by tree.CONTRACT_NUM) N_ROOT
+              FROM (SELECT /*+ use_hash(lc vm)  cardinality(vm 100000) */
+                          *
+                      FROM dwh.leasing_contracts
+                     WHERE     valid_to_dttm =
+                                  TO_DATE ('01.01.2400', 'dd.mm.yyyy')
+                           AND auto_flg = 1) lc
+                   LEFT JOIN dwh.contracts c
+                      ON     lc.contract_key = c.contract_key
+                         AND c.valid_to_dttm =
+                                TO_DATE ('01.01.2400', 'dd.mm.yyyy')
+                         AND c.branch_key = 1
+                   -- [aapolyakov 10.08.2016]: связка с деревом договоров.
+                   --LEFT - changed by ovilkova 31.10.2017 due to cgp_daily test & cross-cheker changes
+                   inner
+                   JOIN tree
+                      ON     c.contract_key = tree.contract_key
+                   LEFT JOIN dwh.currencies cur
+                      ON     lc.currency_key = cur.currency_key
+                         AND cur.valid_to_dttm =
+                                TO_DATE ('01.01.2400', 'dd.mm.yyyy')
+                   LEFT JOIN dwh.v_mapping_contracts vm
+                      ON lc.contract_key = vm.contract_key
+                   -- [aapolyakov 30.11.2015]: связка с деревом версий ПЛ. Поскольку в Crosys есть ссылка на более старый ПЛ, необходимо связывать актуальный пл из CRM с ПЛ Crosys.
+                   LEFT JOIN (select
+                      *
+                      from dwhro.v_uakr_subjects_tree) t
+                      ON vm.leasing_subject_key = t.leasing_subject_key)
+   SELECT CONTRACT_KEY,
+          CRM_CONTRACT_KEY,
+          CONTRACT_ID_CD,
+          app_num, --ov
+          REHIRING_FLG,
+          CLIENT_KEY,
+          CONTRACT_CD,
+          CONTRACT_NUM,
+          CONTRACT_FIN_KIND_DESC,
+          MANAGER_NAM,
+          AUTO_FLG,
+          LEASING_ASSET_KIND_DESC,
+          LEASING_SUBJECT_DESC,
+          LEASING_START_DT,
+          LEASING_CLOSE_DT,
+          LESSEE_BAL_FLG,
+          START_DT,
+          END_DT,
+          CURRENCY_KEY,
+          VALID_FROM_DTTM,
+          VALID_TO_DTTM,
+          PROCESS_KEY,
+          FILE_ID,
+          PENALTY_RATE,
+          CRM_CONTRACT_CD,
+          CODE1C_CD,
+          CURRENCY_LETTER_CD,
+          LEASING_SUBJECT_KEY,
+          LEASING_DEAL_KEY,
+          LEASING_OFFER_KEY,
+          CRM_CLIENT_KEY,
+          -- [apolyakov 11.04.2017]: добавлено для определения NIL по группе контрагентов
+          ACCOUNT_GROUP_KEY,
+          -- [APOLYAKOV 09.08.2016]: Добавлен анализ multiplicity на случай, если признак перенайма неправильно выгрузился, однако по сделке 2 договора и более.
+          CASE
+             WHEN multiplicity_flg = 1 and is_rehiring = 0 THEN 'Да'
+             WHEN (is_rehiring = 1 or multiplicity_flg > 1)
+                AND rn = 1
+                -- [apolyakov 11.08.2016]: необходимо чтобы удаленные никогда не были актуальны
+                AND CASE
+                      WHEN multiplicity_flg > 1 AND c_root is null
+                        THEN TO_DATE ('31.12.3999', 'DD.MM.YYYY')
+                      ELSE REHIRING_START_DT
+                    END != to_date ('31.12.3999', 'dd.mm.yyyy') THEN 'Да'
+             ELSE 'Нет'
+          END
+             ACTUAL_FLG,
+          ROOT_KEY,
+          -- [APOLYAKOV 10.08.2016]: Для того, чтобы не учитывать в отчетах удаленные или отмененные перенаймы, длня них анализируется рут дерева договоров и проставляется 3999 год.
+          CASE
+             WHEN multiplicity_flg > 1 AND c_root is null
+                THEN TO_DATE ('31.12.3999', 'DD.MM.YYYY')
+             ELSE REHIRING_START_DT
+          END REHIRING_START_DT,
+          -- [APOLYAKOV 10.08.2016]: Добавлена дата окончания перенайма и рут договора.
+          REHIRING_END_DT,
+          C_ROOT
+          -- [VZANOZIN 31.08.2018]: Добавлено кол-во узлов в в дереьях и тоже самое в разрезе CONTRACT_NUM.
+          ,doc_from -- v_maping_contract
+          ,pay_sum  -- v_maping_contract
+          ,nodes_by_root
+          ,N_ROOT
+     FROM tt;
+

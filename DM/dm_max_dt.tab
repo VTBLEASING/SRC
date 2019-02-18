@@ -1,0 +1,20 @@
+create table DM.DM_MAX_DT
+(
+  contract_id NUMBER,
+  max_dt      DATE,
+  oddtm       DATE,
+  branch_key  NUMBER,
+  insert_dt   DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

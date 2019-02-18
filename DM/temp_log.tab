@@ -1,0 +1,22 @@
+create table DM.TEMP_LOG
+(
+  report_id NUMBER,
+  val1      VARCHAR2(400),
+  val2      VARCHAR2(400),
+  val3      VARCHAR2(400),
+  val4      VARCHAR2(400),
+  val5      VARCHAR2(400),
+  l_dt      DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

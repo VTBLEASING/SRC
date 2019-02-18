@@ -1,0 +1,23 @@
+create table DM.NIL_CORRECTS_TEMP_AAP
+(
+  contract_key    NUMBER,
+  correct_amt     NUMBER,
+  snapshot_dt     DATE,
+  actual_flg      VARCHAR2(5),
+  valid_from_dttm DATE,
+  valid_to_dttm   DATE,
+  process_key     NUMBER,
+  file_id         NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

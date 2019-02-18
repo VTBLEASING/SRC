@@ -1,0 +1,286 @@
+create table DM.DM_CGP_DAILY_HIST
+(
+  snapshot_dt                    DATE,
+  contract_key                   NUMBER,
+  contract_num                   VARCHAR2(255),
+  inn                            VARCHAR2(255),
+  short_client_ru_nam            VARCHAR2(4000),
+  transmit_subject_nam           VARCHAR2(4000),
+  leasing_subject_key            NUMBER,
+  leasing_deal_key               NUMBER,
+  leasing_offer_key              NUMBER,
+  actual_flg                     VARCHAR2(100),
+  status_1c_desc                 VARCHAR2(1000),
+  contract_status_key            NUMBER,
+  state_status_key               NUMBER,
+  subject_status_key             NUMBER,
+  overdue_amt                    NUMBER,
+  overdue_dt                     DATE,
+  nil                            NUMBER,
+  insert_dt                      DATE,
+  cis_term_amt_tax               NUMBER,
+  cis_term_amt_tax_risk          NUMBER,
+  cis_overdue_amt_tax            NUMBER,
+  cis_term_amt_risk              NUMBER,
+  cis_overdue_amt                NUMBER,
+  cis_term_amt                   NUMBER,
+  overdue_days                   NUMBER,
+  product_nam                    VARCHAR2(255),
+  contract_id_cd                 VARCHAR2(255),
+  max_leas_overdue_days          NUMBER,
+  overdue_days_leasing           NUMBER,
+  overdue_days_leasing_count     NUMBER,
+  leasing_payments_count         NUMBER,
+  leasing_payments_sum           NUMBER,
+  snapshot_month                 DATE,
+  cur_leas_overdue_days          NUMBER,
+  avg_leas_overdue_days          NUMBER,
+  cur_adv_overdue_days           NUMBER,
+  max_adv_overdue_days           NUMBER,
+  avg_adv_overdue_days           NUMBER,
+  cur_red_overdue_days           NUMBER,
+  max_red_overdue_days           NUMBER,
+  avg_red_overdue_days           NUMBER,
+  cur_oth_com_overdue_days       NUMBER,
+  avg_oth_com_overdue_days       NUMBER,
+  cur_fix_com_overdue_days       NUMBER,
+  max_fix_com_overdue_days       NUMBER,
+  avg_fix_com_overdue_days       NUMBER,
+  cur_sub_overdue_days           NUMBER,
+  max_sub_overdue_days           NUMBER,
+  avg_sub_overdue_days           NUMBER,
+  cur_add_ins_overdue_days       NUMBER,
+  max_add_ins_overdue_days       NUMBER,
+  avg_add_ins_overdue_days       NUMBER,
+  cur_ins_overdue_days           NUMBER,
+  max_ins_overdue_days           NUMBER,
+  avg_ins_overdue_days           NUMBER,
+  cur_reg_overdue_days           NUMBER,
+  max_reg_overdue_days           NUMBER,
+  avg_reg_overdue_days           NUMBER,
+  cur_for_overdue_days           NUMBER,
+  max_for_overdue_days           NUMBER,
+  avg_for_overdue_days           NUMBER,
+  cur_pen_overdue_days           NUMBER,
+  max_pen_overdue_days           NUMBER,
+  avg_pen_overdue_days           NUMBER,
+  cur_ovr_overdue_days           NUMBER,
+  max_ovr_overdue_days           NUMBER,
+  avg_ovr_overdue_days           NUMBER,
+  cur_insur_overdue_days         NUMBER,
+  max_insur_overdue_days         NUMBER,
+  avg_insur_overdue_days         NUMBER,
+  cur_oth_overdue_days           NUMBER,
+  max_oth_overdue_days           NUMBER,
+  avg_oth_overdue_days           NUMBER,
+  cur_leas_overdue_amt           NUMBER,
+  cur_adv_overdue_amt            NUMBER,
+  cur_red_overdue_amt            NUMBER,
+  cur_oth_com_overdue_amt        NUMBER,
+  cur_fix_com_overdue_amt        NUMBER,
+  cur_sub_overdue_amt            NUMBER,
+  cur_add_overdue_amt            NUMBER,
+  cur_ins_overdue_amt            NUMBER,
+  cur_reg_overdue_amt            NUMBER,
+  cur_for_overdue_amt            NUMBER,
+  cur_pen_overdue_amt            NUMBER,
+  cur_ovr_overdue_amt            NUMBER,
+  cur_insur_overdue_amt          NUMBER,
+  cur_oth_overdue_amt            NUMBER,
+  overdue_leasing_payments_count NUMBER,
+  cur_leas_overdue_dt            DATE,
+  max_leas_pay_dt                DATE,
+  total_leas_overdue_days        NUMBER,
+  finance_amt                    NUMBER,
+  gr_fin_start_amt               NUMBER,
+  cl_fin_start_amt               NUMBER,
+  gr_fin_cur_amt                 NUMBER,
+  cl_fin_cur_amt                 NUMBER,
+  pts_dt                         DATE,
+  pts_comm                       VARCHAR2(4000),
+  max_oth_com_overdue_days       NUMBER,
+  subproduct_nam                 VARCHAR2(500),
+  lease_term_cnt                 NUMBER,
+  prc_id                         NUMBER,
+  prc_timestamp                  TIMESTAMP(6),
+  leasing_payments_count_12      NUMBER,
+  leas_count_12                  NUMBER,
+  avg_leas_overdue_days_12       NUMBER,
+  max_leas_overdue_days_12       NUMBER,
+  end_dt                         DATE,
+  advance_rub                    NUMBER,
+  supply_rub                     NUMBER,
+  balance                        NUMBER,
+  cr_ch_flg                      NUMBER,
+  pts_flg                        VARCHAR2(6),
+  noneed                         VARCHAR2(6),
+  ogrn                           VARCHAR2(25),
+  app_num                        NUMBER,
+  u_total_leas_overdue_days      NUMBER,
+  u_max_leas_overdue_days        NUMBER,
+  u_max_leas_overdue_days_12     NUMBER,
+  u_avg_leas_overdue_days        NUMBER,
+  u_avg_leas_overdue_days_12     NUMBER,
+  u_max_adv_overdue_days         NUMBER,
+  u_avg_adv_overdue_days         NUMBER,
+  u_max_red_overdue_days         NUMBER,
+  u_avg_red_overdue_days         NUMBER,
+  u_max_oth_com_overdue_days     NUMBER,
+  u_avg_oth_com_overdue_days     NUMBER,
+  u_max_fix_com_overdue_days     NUMBER,
+  u_avg_fix_com_overdue_days     NUMBER,
+  u_max_sub_overdue_days         NUMBER,
+  u_avg_sub_overdue_days         NUMBER,
+  u_max_add_ins_overdue_days     NUMBER,
+  u_avg_add_ins_overdue_days     NUMBER,
+  u_max_ins_overdue_days         NUMBER,
+  u_avg_ins_overdue_days         NUMBER,
+  u_max_reg_overdue_days         NUMBER,
+  u_avg_reg_overdue_days         NUMBER,
+  u_max_for_overdue_days         NUMBER,
+  u_avg_for_overdue_days         NUMBER,
+  u_max_pen_overdue_days         NUMBER,
+  u_avg_pen_overdue_days         NUMBER,
+  u_max_ovr_overdue_days         NUMBER,
+  u_avg_ovr_overdue_days         NUMBER,
+  u_max_insur_overdue_days       NUMBER,
+  u_avg_insur_overdue_days       NUMBER,
+  u_max_oth_overdue_days         NUMBER,
+  u_avg_oth_overdue_days         NUMBER,
+  contract_stage                 VARCHAR2(30),
+  lease_subject_cnt              NUMBER,
+  doc_from                       DATE,
+  leasing_offer_num              VARCHAR2(300),
+  pay_sum                        NUMBER,
+  prepay_rate                    NUMBER,
+  adv_payment                    NUMBER,
+  leasing_subject_nam            VARCHAR2(500),
+  rehiring_flg                   VARCHAR2(6),
+  rehireable_flg                 NUMBER,
+  crm_contract_key               NUMBER,
+  cis_avg_overdue_amt            NUMBER,
+  vehicle_category_cd            VARCHAR2(100),
+  act_dt                         DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column DM.DM_CGP_DAILY_HIST.snapshot_dt
+  is 'Отчетная дата';
+comment on column DM.DM_CGP_DAILY_HIST.contract_key
+  is 'Ключ договора лизинга – ссылка на справочник договоров лизинга';
+comment on column DM.DM_CGP_DAILY_HIST.contract_num
+  is 'Номер договора лизинга';
+comment on column DM.DM_CGP_DAILY_HIST.inn
+  is 'ИНН';
+comment on column DM.DM_CGP_DAILY_HIST.short_client_ru_nam
+  is 'Наименование клиента';
+comment on column DM.DM_CGP_DAILY_HIST.transmit_subject_nam
+  is 'Наименование переданного предмета лизинга 1С';
+comment on column DM.DM_CGP_DAILY_HIST.leasing_subject_key
+  is 'Ключ предмета лизинга CRM – ссылка на справочник предметов лизинга';
+comment on column DM.DM_CGP_DAILY_HIST.leasing_deal_key
+  is 'Ключ сделки CRM – ссылка на справочник сделок CRM';
+comment on column DM.DM_CGP_DAILY_HIST.leasing_offer_key
+  is 'Ключ предложения CRM – ссылка на справочник предложений CRM';
+comment on column DM.DM_CGP_DAILY_HIST.status_1c_desc
+  is 'Статус 1С по договору лизинга';
+comment on column DM.DM_CGP_DAILY_HIST.contract_status_key
+  is 'Ключ рабочего статуса по договору – ссылка на справочник рабочих статусов';
+comment on column DM.DM_CGP_DAILY_HIST.state_status_key
+  is 'Ключ рабочего статуса по состоянию ПЛ – ссылка на справочник рабочих статусов';
+comment on column DM.DM_CGP_DAILY_HIST.subject_status_key
+  is 'Ключ рабочего статуса по ПЛ – ссылка на справочник рабочих статусов';
+comment on column DM.DM_CGP_DAILY_HIST.nil
+  is 'Сумма задолженности по NIL';
+comment on column DM.DM_CGP_DAILY_HIST.insert_dt
+  is 'Дата и время добавления записи';
+comment on column DM.DM_CGP_DAILY_HIST.cis_term_amt_tax
+  is 'Срочная задолженность с НДС, без учета списаний (КИС)';
+comment on column DM.DM_CGP_DAILY_HIST.cis_term_amt_tax_risk
+  is 'Срочная задолженность с НДС, с учетом списаний (КИС)';
+comment on column DM.DM_CGP_DAILY_HIST.cis_overdue_amt_tax
+  is 'Просроченная задолженность с НДС (КИС)';
+comment on column DM.DM_CGP_DAILY_HIST.cis_term_amt_risk
+  is 'Срочная задолженность без НДС, с учетом списаний (КИС)';
+comment on column DM.DM_CGP_DAILY_HIST.cis_overdue_amt
+  is 'Просроченная задолженность без НДС (КИС)';
+comment on column DM.DM_CGP_DAILY_HIST.cis_term_amt
+  is 'Срочная задолженность без НДС, без учета списаний (КИС)';
+comment on column DM.DM_CGP_DAILY_HIST.product_nam
+  is 'Наименование продукта по предмету лизинга';
+comment on column DM.DM_CGP_DAILY_HIST.contract_id_cd
+  is 'ID договора лизинга';
+comment on column DM.DM_CGP_DAILY_HIST.max_leas_overdue_days
+  is 'Количество дней просрочки по лиз. платежам, максимальное';
+comment on column DM.DM_CGP_DAILY_HIST.leasing_payments_count
+  is 'Количество оплаченных лизинговых платежей';
+comment on column DM.DM_CGP_DAILY_HIST.leasing_payments_sum
+  is 'Сумма внесенных лизинговых платежей';
+comment on column DM.DM_CGP_DAILY_HIST.snapshot_month
+  is 'Отчетный месяц';
+comment on column DM.DM_CGP_DAILY_HIST.cur_leas_overdue_days
+  is 'Количество дней просроченной задолженности по лизинговым платежам, текущее';
+comment on column DM.DM_CGP_DAILY_HIST.avg_leas_overdue_days
+  is 'Количество дней просроченной задолженности  по лизинговым платежам, среднее';
+comment on column DM.DM_CGP_DAILY_HIST.max_oth_overdue_days
+  is 'Количество дней просрочки по прочим статьям, максимальное';
+comment on column DM.DM_CGP_DAILY_HIST.avg_oth_overdue_days
+  is 'Количество дней просроченной задолженности  по прочим статьям, среднее';
+comment on column DM.DM_CGP_DAILY_HIST.overdue_leasing_payments_count
+  is 'Количество лизинговых платежей с просрочкой';
+comment on column DM.DM_CGP_DAILY_HIST.cur_leas_overdue_dt
+  is 'Дата возникновения просроченной задолженности по лизинговым платежам, текущей';
+comment on column DM.DM_CGP_DAILY_HIST.max_leas_pay_dt
+  is 'Дата последнего планового платежа';
+comment on column DM.DM_CGP_DAILY_HIST.total_leas_overdue_days
+  is 'Суммарное количество дней просрочки по лизинговым платежам';
+comment on column DM.DM_CGP_DAILY_HIST.gr_fin_start_amt
+  is 'Совокупная сумма финансирования по группе компаний со стороны ВТБЛ, руб., первоначальная';
+comment on column DM.DM_CGP_DAILY_HIST.cl_fin_start_amt
+  is 'Совокупная сумма финансирования по клиенту со стороны ВТБЛ, руб., первоначальная';
+comment on column DM.DM_CGP_DAILY_HIST.gr_fin_cur_amt
+  is 'Совокупная сумма финансирования по группе компаний со стороны ВТБЛ, руб., текущая';
+comment on column DM.DM_CGP_DAILY_HIST.cl_fin_cur_amt
+  is 'Совокупная сумма финансирования по клиенту со стороны ВТБЛ, руб., текущая';
+comment on column DM.DM_CGP_DAILY_HIST.pts_dt
+  is 'Дата получения ПТС/ПСМ в ВТБЛ';
+comment on column DM.DM_CGP_DAILY_HIST.pts_comm
+  is 'Комментарии по возврату ПТС/ПСМ';
+comment on column DM.DM_CGP_DAILY_HIST.leasing_payments_count_12
+  is 'Кол-во внесенных лизинговых платежей за последние 12 мес.';
+comment on column DM.DM_CGP_DAILY_HIST.leas_count_12
+  is 'Количество раз просрочек по лизинговым платежам за последние 12 мес.';
+comment on column DM.DM_CGP_DAILY_HIST.avg_leas_overdue_days_12
+  is 'Количество дней просрочки по лизинговым платежам, среднее за последние 12 мес.';
+comment on column DM.DM_CGP_DAILY_HIST.max_leas_overdue_days_12
+  is 'Количество дней просрочки по лизинговым платежам, максимальное за последние 12 мес.';
+comment on column DM.DM_CGP_DAILY_HIST.end_dt
+  is 'Дата окончания контракта';
+comment on column DM.DM_CGP_DAILY_HIST.advance_rub
+  is 'Аванс в рублях';
+comment on column DM.DM_CGP_DAILY_HIST.supply_rub
+  is 'Стоимость предмета лизинга в рублях';
+comment on column DM.DM_CGP_DAILY_HIST.balance
+  is 'Остаток долга с НДС, руб. по состоянию на 1 число';
+comment on column DM.DM_CGP_DAILY_HIST.cr_ch_flg
+  is 'Флаг для кросс-чекера: условие дата закрытия не более 1 года от тек. отчетной даты';
+comment on column DM.DM_CGP_DAILY_HIST.noneed
+  is 'Предусмотрен или нет ';
+comment on column DM.DM_CGP_DAILY_HIST.doc_from
+  is 'Дата ДЛ/Перенайма ';
+comment on column DM.DM_CGP_DAILY_HIST.prepay_rate
+  is 'Аванс с учетом субсидии';
+comment on column DM.DM_CGP_DAILY_HIST.adv_payment
+  is 'Аванс с учетом субсидии';
+comment on column DM.DM_CGP_DAILY_HIST.cis_avg_overdue_amt
+  is 'Средняя просроченная задолженность без НДС (КИС)';
+

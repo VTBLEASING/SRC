@@ -1,0 +1,17 @@
+create global temporary table DM.TMP_DM_REPAYMENT_SCHEDULE_HIST
+(
+  rid            ROWID,
+  col_flg        VARCHAR2(1),
+  pay_dt         DATE,
+  snapshot_dt    DATE,
+  nil_amt        NUMBER,
+  tranche_num    NUMBER,
+  file_id        NUMBER,
+  contract_key   NUMBER,
+  currency_key   NUMBER,
+  snapshot_cd    CHAR(23),
+  snapshot_month NUMBER,
+  branch_key     NUMBER
+)
+on commit delete rows;
+

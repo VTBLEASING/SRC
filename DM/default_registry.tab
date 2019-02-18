@@ -1,0 +1,50 @@
+create table DM.DEFAULT_REGISTRY
+(
+  contract_id                  NUMBER,
+  contract_num_full            VARCHAR2(1014),
+  contract_num                 VARCHAR2(1000),
+  app_name                     VARCHAR2(112),
+  app_name_shrt                VARCHAR2(136),
+  app_1c_num                   NUMBER(14),
+  client_id                    NUMBER,
+  client_inn                   VARCHAR2(100),
+  full_client_ru_nam           VARCHAR2(1000 CHAR),
+  product_nam                  VARCHAR2(200),
+  subproduct_nam               VARCHAR2(200),
+  date_default                 DATE,
+  default_event                VARCHAR2(68),
+  default_attr                 VARCHAR2(27),
+  rehiring_flg                 CHAR(1),
+  group_key                    NUMBER,
+  report_dt                    DATE,
+  rehiring_dt                  DATE,
+  date_termination             DATE,
+  date_termination_cncl        DATE,
+  date_item_loss_insurcomp     DATE,
+  date_item_losscncl_insurcomp DATE,
+  date_item_loss_client        DATE,
+  date_item_losscncl_client    DATE,
+  date_90                      DATE,
+  date_90_cncl                 DATE,
+  date_reserve_estb            DATE,
+  date_reserve_estb_cncl       DATE,
+  date_bancruptcy              DATE,
+  date_bancruptcy_cncl         DATE,
+  date_writeoff                DATE,
+  date_writeoff_cncl           DATE,
+  date_other_default           DATE,
+  date_other_default_cncl      DATE,
+  source_item                  VARCHAR2(7)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

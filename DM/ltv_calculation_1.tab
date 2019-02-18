@@ -1,0 +1,141 @@
+create table DM.LTV_CALCULATION_1
+(
+  report_dt                DATE,
+  contract_num             NUMBER,
+  contract_vat_rate        NUMBER,
+  act_dt                   DATE,
+  car_age                  NUMBER,
+  product_nam              VARCHAR2(250),
+  sub_product_nam          VARCHAR2(250),
+  car_type_nam             VARCHAR2(250),
+  liquidity_group          NUMBER,
+  country_ru_nam           VARCHAR2(250),
+  model_year               NUMBER,
+  client_ru_nam            VARCHAR2(250),
+  inn                      VARCHAR2(250),
+  group_key                NUMBER,
+  group_ru_nam             VARCHAR2(250),
+  insurance_event          VARCHAR2(250),
+  insurance_event_dt       DATE,
+  last_decision            VARCHAR2(250),
+  last_decision_dt         DATE,
+  lease_term_cnt           NUMBER,
+  status_1с                VARCHAR2(250),
+  leasing_payments_count   NUMBER,
+  remaining_payments_count NUMBER,
+  balance_amt              NUMBER,
+  supply_rub_tax           NUMBER,
+  discount_value           NUMBER,
+  k1                       NUMBER,
+  k2                       NUMBER,
+  avr_mileage              NUMBER,
+  av_mileage               NUMBER,
+  auction                  NUMBER,
+  car_age_mileage          NUMBER,
+  omega                    NUMBER,
+  if_mileage               NUMBER,
+  market_price             NUMBER,
+  market_price_noss        NUMBER,
+  liquidity_price          NUMBER,
+  liquidity_price_noss     NUMBER,
+  ltv_market_price         NUMBER,
+  ltv_market_price_noss    NUMBER,
+  ltv_liquidity_price      NUMBER,
+  ltv_liquidity_price_noss NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column DM.LTV_CALCULATION_1.report_dt
+  is 'Отчетная дата';
+comment on column DM.LTV_CALCULATION_1.contract_num
+  is 'Номер договора';
+comment on column DM.LTV_CALCULATION_1.contract_vat_rate
+  is 'Индивидуальная ставка НДС';
+comment on column DM.LTV_CALCULATION_1.act_dt
+  is 'Дата передачи в лизинг';
+comment on column DM.LTV_CALCULATION_1.car_age
+  is 'Тф, лет';
+comment on column DM.LTV_CALCULATION_1.product_nam
+  is 'Продукт';
+comment on column DM.LTV_CALCULATION_1.sub_product_nam
+  is 'Подпродукт';
+comment on column DM.LTV_CALCULATION_1.car_type_nam
+  is 'Тип ТС';
+comment on column DM.LTV_CALCULATION_1.liquidity_group
+  is 'Группа ликвидности';
+comment on column DM.LTV_CALCULATION_1.country_ru_nam
+  is 'Страна марки';
+comment on column DM.LTV_CALCULATION_1.model_year
+  is 'Год выпуска';
+comment on column DM.LTV_CALCULATION_1.client_ru_nam
+  is 'Контрагент 1С';
+comment on column DM.LTV_CALCULATION_1.inn
+  is 'ИНН 1С';
+comment on column DM.LTV_CALCULATION_1.group_key
+  is 'ID ГК';
+comment on column DM.LTV_CALCULATION_1.group_ru_nam
+  is 'Наименование ГК';
+comment on column DM.LTV_CALCULATION_1.insurance_event
+  is 'Признак страхового события';
+comment on column DM.LTV_CALCULATION_1.insurance_event_dt
+  is 'Дата наступления СС';
+comment on column DM.LTV_CALCULATION_1.last_decision
+  is 'Последнее решение СК';
+comment on column DM.LTV_CALCULATION_1.last_decision_dt
+  is 'Дата последнего решения';
+comment on column DM.LTV_CALCULATION_1.lease_term_cnt
+  is 'Срок лизинга';
+comment on column DM.LTV_CALCULATION_1.status_1с
+  is 'Статус 1С';
+comment on column DM.LTV_CALCULATION_1.leasing_payments_count
+  is 'Количество внесенных лизинговых платежей';
+comment on column DM.LTV_CALCULATION_1.remaining_payments_count
+  is 'Количество месяцев до конца срока лизинга';
+comment on column DM.LTV_CALCULATION_1.balance_amt
+  is 'Остаток основного долга ';
+comment on column DM.LTV_CALCULATION_1.supply_rub_tax
+  is 'Стоимость на дату передачи в лизинг без НДС ';
+comment on column DM.LTV_CALCULATION_1.discount_value
+  is 'Дисконт';
+comment on column DM.LTV_CALCULATION_1.k1
+  is 'Коэф.1';
+comment on column DM.LTV_CALCULATION_1.k2
+  is 'Коэф.2';
+comment on column DM.LTV_CALCULATION_1.avr_mileage
+  is 'Среднегодовой пробег для такси, тыс.км';
+comment on column DM.LTV_CALCULATION_1.av_mileage
+  is 'Среднегодовой пробег, тыс.км ';
+comment on column DM.LTV_CALCULATION_1.auction
+  is 'Торг';
+comment on column DM.LTV_CALCULATION_1.car_age_mileage
+  is 'Lф, тыс. км';
+comment on column DM.LTV_CALCULATION_1.omega
+  is 'Тф, лет* Коэф.1 + Lф, тыс. км* Коэф.2';
+comment on column DM.LTV_CALCULATION_1.if_mileage
+  is 'Иф, %';
+comment on column DM.LTV_CALCULATION_1.market_price
+  is 'Рыночная стоимость на дату оценки без НДС';
+comment on column DM.LTV_CALCULATION_1.market_price_noss
+  is 'Рыночная стоимость на дату оценки без НДС (без корректировки на СС)';
+comment on column DM.LTV_CALCULATION_1.liquidity_price
+  is 'Ликвидационная стоимость на дату оценки без НДС';
+comment on column DM.LTV_CALCULATION_1.liquidity_price_noss
+  is 'Ликвидационная стоимость на дату оценки без НДС (без корректировки на СС)';
+comment on column DM.LTV_CALCULATION_1.ltv_market_price
+  is 'LTV от рыночной стоимости, %';
+comment on column DM.LTV_CALCULATION_1.ltv_market_price_noss
+  is 'LTV от рыночной стоимости, % (без корректировки на СС)';
+comment on column DM.LTV_CALCULATION_1.ltv_liquidity_price
+  is 'LTV от ликвидационной стоимости, %';
+comment on column DM.LTV_CALCULATION_1.ltv_liquidity_price_noss
+  is 'LTV от рыночной стоимости, % (без корректировки на СС)';
+

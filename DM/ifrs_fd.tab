@@ -1,0 +1,42 @@
+create table DM.IFRS_FD
+(
+  snapshot_dt               DATE,
+  contract_app_key          NUMBER,
+  contract_key              NUMBER,
+  client_key                NUMBER,
+  facility                  VARCHAR2(100 CHAR),
+  app                       VARCHAR2(119),
+  facility_app              VARCHAR2(513),
+  dfk                       VARCHAR2(100),
+  eff_rate                  NUMBER,
+  ftp                       NUMBER,
+  start_dt                  DATE,
+  maturity_dt               DATE,
+  currency_nam              VARCHAR2(10 CHAR),
+  date_mnthend              DATE,
+  date_mnthstart            DATE,
+  nil_month                 NUMBER(15,2),
+  nil_quarter               NUMBER(15,2),
+  nil_year                  NUMBER(15,2),
+  nil_avg_month             NUMBER,
+  nil_avg_quarter           NUMBER,
+  nil_avg_year              NUMBER,
+  fli_month                 NUMBER,
+  fli_quarter               NUMBER,
+  fli_year                  NUMBER,
+  trunsfer_forecast_month   NUMBER,
+  trunsfer_forecast_quarter NUMBER,
+  trunsfer_forecast_year    NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

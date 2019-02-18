@@ -1,0 +1,19 @@
+create table DM.DM_CGP_CONTRACTS_INCLUDE
+(
+  contract_key NUMBER,
+  contract_num VARCHAR2(20),
+  begin_dt     DATE,
+  end_dt       DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

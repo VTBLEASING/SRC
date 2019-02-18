@@ -1,0 +1,22 @@
+create table DM.DM_OL_FLOW_SUPPLY
+(
+  contract_key NUMBER,
+  s_key        NUMBER,
+  snapshot_cd  VARCHAR2(100),
+  snapshot_dt  DATE,
+  s_amt        NUMBER,
+  s_amt_f      NUMBER,
+  s_amt_f_r    NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

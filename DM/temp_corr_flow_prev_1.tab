@@ -1,0 +1,20 @@
+create table DM.TEMP_CORR_FLOW_PREV_1
+(
+  l_key      NUMBER,
+  branch_key NUMBER,
+  pay_dt     DATE,
+  summ       NUMBER,
+  pay_amt    NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

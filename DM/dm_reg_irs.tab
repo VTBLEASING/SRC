@@ -1,0 +1,52 @@
+create table DM.DM_REG_IRS
+(
+  snapshot_cd        VARCHAR2(30),
+  snapshot_dt        DATE,
+  snapshot_month     VARCHAR2(30),
+  snapshot_year      NUMBER,
+  branch_key         NUMBER,
+  acñount_key        NUMBER,
+  contract_key       NUMBER,
+  client_key         NUMBER,
+  bank_key           NUMBER,
+  member_key         NUMBER,
+  vtb_member_flg     CHAR(1),
+  instrument_key     NUMBER,
+  instrument_kind_cd VARCHAR2(30),
+  src_currency_key   NUMBER,
+  cis_currency_key   NUMBER,
+  term_cnt           NUMBER,
+  period1_type_key   NUMBER,
+  period2_type_key   NUMBER,
+  period3_type_key   NUMBER,
+  src_amt            NUMBER,
+  rur_amt            NUMBER,
+  cis_amt            NUMBER,
+  rate_w_amt         NUMBER,
+  term_w_amt         NUMBER,
+  src_liq_amt        NUMBER,
+  cis_liq_amt        NUMBER,
+  src_mr_amt         NUMBER,
+  rur_mr_amt         NUMBER,
+  rate_w_mr_amt      NUMBER,
+  pay_dt             DATE,
+  ex_rate            NUMBER,
+  float_rate_flg     CHAR(1),
+  rate_amt           NUMBER,
+  purpose_desc       VARCHAR2(255),
+  art_cd             VARCHAR2(30),
+  process_key        NUMBER,
+  insert_dt          DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

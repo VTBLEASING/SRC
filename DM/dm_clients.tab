@@ -1,0 +1,42 @@
+create table DM.DM_CLIENTS
+(
+  snapshot_cd           VARCHAR2(30),
+  snapshot_dt           DATE,
+  snapshot_month        VARCHAR2(30),
+  snapshot_year         NUMBER,
+  client_key            NUMBER,
+  client_cd             VARCHAR2(100),
+  client_id             VARCHAR2(100),
+  client_crm_cd         VARCHAR2(100),
+  short_client_ru_nam   VARCHAR2(1000),
+  inn                   VARCHAR2(100),
+  business_category_key NUMBER,
+  credit_rating_key     NUMBER,
+  activity_type_key     NUMBER,
+  reg_country_key       NUMBER,
+  risk_country_key      NUMBER,
+  parties_type_key      NUMBER,
+  laundering_risk_flg   NUMBER,
+  org_type_key          NUMBER,
+  grf_group_key         NUMBER,
+  group_key             NUMBER,
+  member_key            NUMBER,
+  failure_flg           NUMBER,
+  branch_office_cd      VARCHAR2(100),
+  client_src_key        NUMBER,
+  client_active_key     NUMBER(1),
+  process_key           NUMBER,
+  insert_dt             DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,25 @@
+create table DM.T_RMM_01102015_REPORT_RS
+(
+  contract_id_cd  VARCHAR2(100 CHAR),
+  contract_key    NUMBER not null,
+  snapshot_cd     CHAR(23),
+  tranche         VARCHAR2(1),
+  pay_dt          DATE,
+  currency_cd     VARCHAR2(100 CHAR),
+  currency_key    NUMBER,
+  pay_amt         NUMBER,
+  nil_amt         NUMBER,
+  leasing_pay_amt NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,51 @@
+create table DM.DM_OL_FLOW_ORIG
+(
+  l_key              NUMBER,
+  branch_key         NUMBER,
+  cbc_desc           VARCHAR2(30),
+  pay_dt             DATE,
+  pay_amt_cur        NUMBER,
+  pay_amt            NUMBER,
+  tp                 VARCHAR2(30),
+  cur1               NUMBER,
+  cur2               NUMBER,
+  cur3               NUMBER,
+  pay_amt_cur_supply NUMBER,
+  snapshot_dt        DATE,
+  snapshot_cd        VARCHAR2(100),
+  l_key_dop          NUMBER,
+  s_key              NUMBER,
+  process_key        NUMBER,
+  insert_dt          DATE default sysdate not null,
+  oper_start_dt      DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column DM.DM_OL_FLOW_ORIG.l_key
+  is 'Ключ договора аренды';
+comment on column DM.DM_OL_FLOW_ORIG.branch_key
+  is 'Филиал';
+comment on column DM.DM_OL_FLOW_ORIG.cbc_desc
+  is 'Код КБК платежа';
+comment on column DM.DM_OL_FLOW_ORIG.pay_dt
+  is 'Дата платежа';
+comment on column DM.DM_OL_FLOW_ORIG.pay_amt_cur
+  is 'Сумма платежа в валюте договора лизинга';
+comment on column DM.DM_OL_FLOW_ORIG.pay_amt
+  is 'Сумма платежа в исходной валюте';
+comment on column DM.DM_OL_FLOW_ORIG.tp
+  is 'Тип платежа';
+comment on column DM.DM_OL_FLOW_ORIG.insert_dt
+  is 'Дата добавления строки';
+comment on column DM.DM_OL_FLOW_ORIG.oper_start_dt
+  is 'Дата передачи предмета в аренду';
+

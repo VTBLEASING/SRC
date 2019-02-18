@@ -1,0 +1,77 @@
+create table DM.DM_CGP_HIST
+(
+  snapshot_cd              VARCHAR2(30) not null,
+  snapshot_dt              DATE not null,
+  snapshot_month           VARCHAR2(30),
+  contract_key             NUMBER not null,
+  branch_key               NUMBER,
+  client_key               NUMBER,
+  business_category_key    NUMBER,
+  client_nam               VARCHAR2(1000),
+  credit_rating_key        NUMBER,
+  rating_agency_key        NUMBER,
+  activity_type_key        NUMBER,
+  reg_country_key          NUMBER,
+  risk_country_key         NUMBER,
+  loan_type_key            NUMBER,
+  lending_purpose_key      NUMBER,
+  risk_trans_flg           CHAR(1),
+  contract_num             VARCHAR2(1000),
+  start_dt                 DATE,
+  end_dt                   DATE,
+  currency_key             NUMBER,
+  assets_transfer_flg      CHAR(1),
+  xirr_rate                NUMBER,
+  term_amt                 NUMBER,
+  avg_term_amt             NUMBER,
+  overdue_amt              NUMBER,
+  avg_overdue_amt          NUMBER,
+  overdue_dt               DATE,
+  float_base_flg           CHAR(1),
+  float_base_type_key      NUMBER,
+  float_base_amt           NUMBER,
+  add_amt                  NUMBER,
+  ias3_term_key            NUMBER,
+  ias3_overdue_key         NUMBER,
+  status                   VARCHAR2(255),
+  fact_close_dt            DATE,
+  contract_status_key      NUMBER,
+  insert_dt                DATE,
+  valid_from_dttm          DATE,
+  valid_to_dttm            DATE,
+  process_key              NUMBER,
+  file_id                  NUMBER,
+  contract_id_cd           VARCHAR2(100 CHAR),
+  client_id                VARCHAR2(100 CHAR),
+  client_1c_cd             VARCHAR2(100 CHAR),
+  custom_flg               CHAR(1 CHAR),
+  closed_row_file_id       NUMBER,
+  overdue_vat_free_amt     NUMBER default 0 not null,
+  avg_overdue_vat_free_amt NUMBER default 0 not null,
+  vat_overdue_amt          NUMBER default 0 not null,
+  vat_term_amt             NUMBER default 0 not null
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DM.U_DM_CGP_HIST on DM.DM_CGP_HIST (SNAPSHOT_CD, SNAPSHOT_DT, CONTRACT_KEY, VALID_TO_DTTM)
+  tablespace DM_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

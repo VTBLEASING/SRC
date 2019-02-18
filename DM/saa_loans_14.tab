@@ -1,0 +1,19 @@
+create table DM.SAA_LOANS_14
+(
+  snapshot_dt DATE,
+  mon_num     NUMBER,
+  mon         VARCHAR2(40),
+  report_dt   DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

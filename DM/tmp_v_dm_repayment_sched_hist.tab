@@ -1,0 +1,29 @@
+create table DM.TMP_V_DM_REPAYMENT_SCHED_HIST
+(
+  row_num        VARCHAR2(4000),
+  contract_cd    VARCHAR2(4000),
+  pay_dt         DATE,
+  currency_cd    VARCHAR2(4000),
+  snapshot_dt    DATE,
+  nil_amt        NUMBER,
+  tranche_num    NUMBER,
+  file_id        VARCHAR2(30),
+  sess_no        VARCHAR2(30),
+  contract_key   NUMBER,
+  currency_key   NUMBER,
+  snapshot_cd    CHAR(23),
+  snapshot_month NUMBER,
+  branch_key     NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

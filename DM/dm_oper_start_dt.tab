@@ -1,0 +1,22 @@
+create table DM.DM_OPER_START_DT
+(
+  contract_key   NUMBER,
+  contract_id_cd VARCHAR2(255),
+  oper_start_dt  DATE,
+  snapshot_dt    DATE,
+  branch_key     NUMBER,
+  insert_dt      DATE,
+  src_cd         VARCHAR2(255)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

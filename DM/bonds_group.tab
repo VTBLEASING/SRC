@@ -1,0 +1,18 @@
+create table DM.BONDS_GROUP
+(
+  issue_volume_num VARCHAR2(100),
+  isin_cd          VARCHAR2(100),
+  number_in_group  NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,21 @@
+create table DM.DM_TASKS_DEFAULTS
+(
+  leasing_deal_key NUMBER,
+  close_dt         DATE,
+  under_nam        VARCHAR2(2000),
+  under_result     VARCHAR2(4000),
+  risk_agreement   VARCHAR2(4000),
+  insert_dt        DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

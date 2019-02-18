@@ -1,0 +1,18 @@
+create table DM.DM_CLIENTS_INSERT_TABLE
+(
+  contract_id_cd VARCHAR2(100),
+  client_nam     VARCHAR2(500),
+  inn            VARCHAR2(100)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

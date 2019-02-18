@@ -1,0 +1,19 @@
+create table DM.TMP$CRM_CONTROLOFDOC_AGR
+(
+  crm_contract_cd VARCHAR2(4000),
+  accept          VARCHAR2(4000),
+  "comment"       VARCHAR2(4000),
+  vtbldate        VARCHAR2(4000)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,25 @@
+create table DM.IFRS_NIL_FLI
+(
+  snapshot_dt      DATE,
+  contract_app_key NUMBER,
+  pay_dt           DATE,
+  ead_fli          NUMBER,
+  ead              NUMBER,
+  lgd_avto         NUMBER,
+  lgd_corp         NUMBER,
+  df_              NUMBER,
+  pdint            NUMBER,
+  script_cd        NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

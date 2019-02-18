@@ -1,0 +1,17 @@
+create table DM.TEMP_CORR_FLOW_UNDERPAY_FLG
+(
+  l_key        NUMBER,
+  flg_underpay CHAR(1)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

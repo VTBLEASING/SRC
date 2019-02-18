@@ -1,0 +1,20 @@
+create table DM.DM_AVG_OVERDUE_AMT_AAP0402
+(
+  contract_id     NUMBER,
+  avg_overdue_amt NUMBER,
+  oddtm           DATE,
+  branch_key      NUMBER,
+  snapshot_cd     VARCHAR2(30)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

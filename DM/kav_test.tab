@@ -1,0 +1,23 @@
+create table DM.KAV_TEST
+(
+  snapshot_dt    DATE,
+  branch_nam     VARCHAR2(1020 CHAR),
+  contract_id_cd VARCHAR2(100 CHAR),
+  period         CHAR(1),
+  year_p         VARCHAR2(4),
+  quarter_p      VARCHAR2(1),
+  month_p        VARCHAR2(15),
+  p_pay          NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

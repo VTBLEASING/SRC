@@ -1,0 +1,35 @@
+create table DM.DM_XIRR_FLOW_NEW
+(
+  l_key           NUMBER,
+  branch_key      NUMBER,
+  pay_dt          DATE,
+  summ            NUMBER,
+  sum_prev        NUMBER,
+  excptn_zero_div NUMBER,
+  report_dt       DATE,
+  flag            NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DM.IX_DM_XIRR_FLOW_NEW on DM.DM_XIRR_FLOW_NEW (L_KEY, REPORT_DT, EXCPTN_ZERO_DIV)
+  tablespace DM_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

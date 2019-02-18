@@ -1,0 +1,75 @@
+create table DM.DM_CGP
+(
+  snapshot_cd              VARCHAR2(30 CHAR) not null,
+  snapshot_dt              DATE not null,
+  snapshot_month           VARCHAR2(30 CHAR) not null,
+  contract_key             NUMBER not null,
+  branch_key               NUMBER not null,
+  client_key               NUMBER not null,
+  business_category_key    NUMBER,
+  client_nam               VARCHAR2(255 CHAR),
+  credit_rating_key        NUMBER,
+  rating_agency_key        NUMBER,
+  activity_type_key        NUMBER,
+  reg_country_key          NUMBER,
+  risk_country_key         NUMBER,
+  loan_type_key            NUMBER default 29,
+  lending_purpose_key      NUMBER default 21,
+  risk_trans_flg           CHAR(1 CHAR),
+  contract_num             VARCHAR2(100 CHAR),
+  start_dt                 DATE,
+  end_dt                   DATE,
+  currency_key             NUMBER,
+  assets_transfer_flg      CHAR(1 CHAR),
+  xirr_rate                NUMBER,
+  term_amt                 NUMBER,
+  avg_term_amt             NUMBER,
+  overdue_amt              NUMBER,
+  avg_overdue_amt          NUMBER,
+  overdue_dt               DATE,
+  float_base_flg           CHAR(1 CHAR),
+  float_base_type_key      NUMBER,
+  float_base_amt           NUMBER,
+  add_amt                  NUMBER,
+  ias3_term_key            NUMBER,
+  ias3_overdue_key         NUMBER,
+  contract_status_key      VARCHAR2(255 CHAR),
+  process_key              NUMBER,
+  insert_dt                DATE,
+  fact_close_dt            DATE,
+  status                   VARCHAR2(10),
+  contract_id_cd           VARCHAR2(100 CHAR),
+  client_id                VARCHAR2(100 CHAR),
+  client_1c_cd             VARCHAR2(100 CHAR),
+  custom_flg               CHAR(1 CHAR),
+  overdue_vat_free_amt     NUMBER default 0 not null,
+  avg_overdue_vat_free_amt NUMBER default 0 not null,
+  vat_overdue_amt          NUMBER default 0 not null,
+  vat_term_amt             NUMBER default 0 not null
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column DM.DM_CGP.snapshot_dt
+  is 'Отчетная дата';
+comment on column DM.DM_CGP.contract_key
+  is 'Ключ договора лизинга – ссылка на справочник договоров лизинга';
+comment on column DM.DM_CGP.avg_term_amt
+  is 'Сумма средней срочной задолженности  без НДС';
+comment on column DM.DM_CGP.overdue_vat_free_amt
+  is 'Сумма просроченной задолженности без НДС';
+comment on column DM.DM_CGP.avg_overdue_vat_free_amt
+  is 'Средняя сумма просроченной задолженности без НДС';
+comment on column DM.DM_CGP.vat_overdue_amt
+  is 'Сумма НДС просроченной задолженности';
+comment on column DM.DM_CGP.vat_term_amt
+  is 'Сумма НДС срочной задолженности';
+

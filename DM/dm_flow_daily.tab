@@ -1,0 +1,36 @@
+create table DM.DM_FLOW_DAILY
+(
+  snapshot_dt           DATE,
+  report_dt             DATE,
+  contract_key          NUMBER,
+  cbc_desc              VARCHAR2(50 CHAR),
+  payment_item_nam      VARCHAR2(200),
+  plan_pay_dt           DATE,
+  plan_pay_dt_orig      DATE,
+  fact_pay_dt_orig      DATE,
+  currency_key          NUMBER,
+  plan_amt              NUMBER,
+  fact_amt              NUMBER,
+  pay_amt               NUMBER,
+  overdue_amt_daily     NUMBER,
+  pen_days              NUMBER,
+  penalty_amt           NUMBER,
+  overdue_days_orig     NUMBER,
+  overdue_payment       NUMBER,
+  overdue_payment_total NUMBER,
+  cur_contract_fin_amt  NUMBER,
+  cur_fin_amt           NUMBER,
+  insert_dt             DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

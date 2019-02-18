@@ -1,0 +1,30 @@
+create table DM.DM_XIRR_FLOW_ORIG_TMP
+(
+  l_key              NUMBER,
+  branch_key         NUMBER,
+  cbc_desc           VARCHAR2(30),
+  pay_dt             DATE,
+  pay_amt_cur        NUMBER,
+  pay_amt            NUMBER,
+  tp                 VARCHAR2(30),
+  cur1               NUMBER,
+  cur2               NUMBER,
+  cur3               NUMBER,
+  pay_amt_cur_supply NUMBER,
+  snapshot_dt        DATE,
+  snapshot_cd        VARCHAR2(100),
+  l_key_dop          NUMBER,
+  s_key              NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,195 @@
+create table DM.DM_NOTA
+(
+  exchange_rate                  NUMBER,
+  contract_app_key               NUMBER,
+  snapshot_dt                    DATE,
+  mircode                        VARCHAR2(20),
+  desk                           CHAR(4),
+  lnd                            CHAR(3),
+  npl                            VARCHAR2(14),
+  sector                         VARCHAR2(50),
+  current_account_number         VARCHAR2(513),
+  local_client_id                VARCHAR2(50),
+  vtb_group                      VARCHAR2(500),
+  borrower                       VARCHAR2(500 CHAR),
+  booking_entity                 CHAR(11),
+  funding_bank                   CHAR(11),
+  vtb_nwrc                       CHAR(3),
+  clfi                           NUMBER,
+  sharing_desc                   NUMBER,
+  original_loan_currency         VARCHAR2(10 CHAR),
+  deal_type                      CHAR(8),
+  start_date                     DATE,
+  maturity_date                  DATE,
+  initial_wal                    NUMBER,
+  fixed_floating_rate_base       VARCHAR2(1000 CHAR),
+  base_interest_rate             NUMBER,
+  full_interest_rate             NUMBER(15,8),
+  upfront_fee                    NUMBER,
+  ftp_base_rate                  NUMBER(10,3),
+  ftp_full_rate                  NUMBER(10,3),
+  net_running_margin             NUMBER,
+  upfront_running_margin         NUMBER,
+  exposure_principal             NUMBER(15,2),
+  accrued                        NUMBER(15,2),
+  provisions                     NUMBER,
+  exposure_principal_rur         NUMBER,
+  accrued_rur                    NUMBER,
+  provisions_rur                 NUMBER,
+  overdue_start_date             DATE,
+  exposure_principal_overdue_rur NUMBER,
+  overdue_accrued_start_date     DATE,
+  accrued_interest_overdue       NUMBER,
+  overdue_penalty_fee            NUMBER,
+  overdue_penalty_fee_start_date NUMBER,
+  overdue_penalty_fee_rur        NUMBER,
+  bs_exposure_boy                NUMBER,
+  accrued_boy                    NUMBER,
+  provisions_exposure_boy        NUMBER,
+  bs_exposure_boq                NUMBER,
+  accrued_boq                    NUMBER,
+  provisions_exposure_boq        NUMBER,
+  bs_exposure_bom                NUMBER,
+  accrued_bom                    NUMBER,
+  provisions_exposure_bom        NUMBER,
+  bs_exposure_bow                NUMBER,
+  accrued_bow                    NUMBER,
+  provisions_exposure_bow        NUMBER,
+  bs_exposure_snapshotdt         NUMBER,
+  accrued_snapshotdt             NUMBER,
+  provisions_snapshotdt          NUMBER,
+  new_tranche_ytd                NUMBER,
+  repaid_tranche_ytd             NUMBER,
+  new_tranche_qtd                NUMBER,
+  repaid_tranche_qtd             NUMBER,
+  new_tranche_mtd                NUMBER,
+  repaid_tranche_mtd             NUMBER,
+  new_tranche_wtd                NUMBER,
+  repaid_tranche_wtd             NUMBER,
+  revolving                      NUMBER,
+  unrevolving                    NUMBER,
+  total_limit                    NUMBER,
+  blank_1                        NUMBER,
+  contract_repayment_y0m1        NUMBER(15,2),
+  contract_repayment_y0m2        NUMBER(15,2),
+  contract_repayment_y0m3        NUMBER(15,2),
+  contract_repayment_y0q1        NUMBER(15,2),
+  contract_repayment_y0m4        NUMBER(15,2),
+  contract_repayment_y0m5        NUMBER(15,2),
+  contract_repayment_y0m6        NUMBER(15,2),
+  contract_repayment_y0q2        NUMBER(15,2),
+  contract_repayment_y0m7        NUMBER(15,2),
+  contract_repayment_y0m8        NUMBER(15,2),
+  contract_repayment_y0m9        NUMBER(15,2),
+  contract_repayment_y0q3        NUMBER(15,2),
+  contract_repayment_y0m10       NUMBER(15,2),
+  contract_repayment_y0m11       NUMBER(15,2),
+  contract_repayment_y0m12       NUMBER(15,2),
+  contract_repayment_y0q4        NUMBER(15,2),
+  contract_repayment_y0          NUMBER(15,2),
+  principalas_of_y0              NUMBER(15,2),
+  contract_repayment_y1m1        NUMBER(15,2),
+  contract_repayment_y1m2        NUMBER(15,2),
+  contract_repayment_y1m3        NUMBER(15,2),
+  contract_repayment_y1q1        NUMBER(15,2),
+  contract_repayment_y1m4        NUMBER(15,2),
+  contract_repayment_y1m5        NUMBER(15,2),
+  contract_repayment_y1m6        NUMBER(15,2),
+  contract_repayment_y1q2        NUMBER(15,2),
+  contract_repayment_y1m7        NUMBER(15,2),
+  contract_repayment_y1m8        NUMBER(15,2),
+  contract_repayment_y1m9        NUMBER(15,2),
+  contract_repayment_y1q3        NUMBER(15,2),
+  contract_repayment_y1m10       NUMBER(15,2),
+  contract_repayment_y1m11       NUMBER(15,2),
+  contract_repayment_y1m12       NUMBER(15,2),
+  contract_repayment_y1q4        NUMBER(15,2),
+  contract_repayment_y1          NUMBER(15,2),
+  principalas_of_y1              NUMBER(15,2),
+  contract_repayment_y2m1        NUMBER(15,2),
+  contract_repayment_y2m2        NUMBER(15,2),
+  contract_repayment_y2m3        NUMBER(15,2),
+  contract_repayment_y2q1        NUMBER(15,2),
+  contract_repayment_y2m4        NUMBER(15,2),
+  contract_repayment_y2m5        NUMBER(15,2),
+  contract_repayment_y2m6        NUMBER(15,2),
+  contract_repayment_y2q2        NUMBER(15,2),
+  contract_repayment_y2m7        NUMBER(15,2),
+  contract_repayment_y2m8        NUMBER(15,2),
+  contract_repayment_y2m9        NUMBER(15,2),
+  contract_repayment_y2q3        NUMBER(15,2),
+  contract_repayment_y2m10       NUMBER(15,2),
+  contract_repayment_y2m11       NUMBER(15,2),
+  contract_repayment_y2m12       NUMBER(15,2),
+  contract_repayment_y2q4        NUMBER(15,2),
+  contract_repayment_y2          NUMBER(15,2),
+  principalas_of_y2              NUMBER(15,2),
+  contract_repayment_y3          NUMBER(15,2),
+  principalas_of_y3              NUMBER(15,2),
+  contract_repayment_y4          NUMBER(15,2),
+  principalas_of_y4              NUMBER(15,2),
+  contract_repayment_y5          NUMBER(15,2),
+  principalas_of_y5              NUMBER(15,2),
+  contract_repayment_y6          NUMBER(15,2),
+  principalas_of_y6              NUMBER(15,2),
+  contract_repayment_y7          NUMBER(15,2),
+  principalas_of_y7              NUMBER(15,2),
+  contract_repayment_after       NUMBER(15,2),
+  final_maturity_date_pass_due   NUMBER,
+  payment_lockout_period         NUMBER,
+  column_209                     NUMBER,
+  revaluation_wtd                NUMBER,
+  revaluation_mtd                NUMBER,
+  revaluation_qtd                NUMBER,
+  revaluation_ytd                NUMBER,
+  fx_revaluation_wtd             NUMBER,
+  fx_revaluation_mtd             NUMBER,
+  fx_revaluation_qtd             NUMBER,
+  fx_revaluation_ytd             NUMBER,
+  llp_accrual_ytd                NUMBER,
+  llp_write_off_ytd              NUMBER,
+  llp_accrual_qtd                NUMBER,
+  llp_write_off_qtd              NUMBER,
+  llp_accrual_mtd                NUMBER,
+  llp_write_off_mtd              NUMBER,
+  llp_accrual_wtd                NUMBER,
+  llp_write_off_wtd              NUMBER,
+  rate_start_dt                  DATE,
+  loans_nam                      VARCHAR2(1000)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DWH.I#DM_NOTA#CONTRACT_APP_KEY on DM.DM_NOTA (CONTRACT_APP_KEY)
+  tablespace DWH_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+create index DM.I#DM_NOTA#SNAPSHOT_DT on DM.DM_NOTA (SNAPSHOT_DT)
+  tablespace DM_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

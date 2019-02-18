@@ -1,0 +1,19 @@
+create table DM.DM_XIRR_FLOW_UNIQ
+(
+  rid        NUMBER,
+  l_key      NUMBER,
+  branch_key NUMBER,
+  flag       NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

@@ -1,0 +1,43 @@
+create table DM.DM_FINANCE_REPORT
+(
+  snapshot_dt                  DATE,
+  contract_app_key             NUMBER,
+  contract_num                 VARCHAR2(1000),
+  contract_id_cd               VARCHAR2(100 CHAR),
+  presentation                 VARCHAR2(112),
+  id_appendix_lease_agreement  VARCHAR2(200),
+  full_client_ru_nam           VARCHAR2(1000 CHAR),
+  col_mircode                  VARCHAR2(20),
+  manager                      VARCHAR2(200),
+  sector                       VARCHAR2(50),
+  grfrepsegment                VARCHAR2(200),
+  inn                          VARCHAR2(100 CHAR),
+  type_of_property             VARCHAR2(1000 CHAR),
+  type_of_lease                VARCHAR2(1020 CHAR),
+  branch_nam                   VARCHAR2(1020 CHAR),
+  maturitydate                 DATE,
+  startdate                    DATE,
+  maturitydate_fin             DATE,
+  ammount_of_sale              NUMBER,
+  amount_future_lease_payments NUMBER(15,2),
+  avans                        NUMBER(15,2),
+  subsid                       NUMBER(15,2),
+  start_nil                    NUMBER(15,2),
+  progno_nil                   NUMBER(15,2),
+  accruedinterestboy           NUMBER(15,2),
+  accruedinterestboq           NUMBER(15,2),
+  accruedinterestbom           NUMBER(15,2),
+  accruedinterestbow           NUMBER(15,2)
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

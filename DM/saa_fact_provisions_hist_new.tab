@@ -1,0 +1,25 @@
+create table DM.SAA_FACT_PROVISIONS_HIST_NEW
+(
+  snapshot_dt       VARCHAR2(100),
+  contract_id_cd    VARCHAR2(100),
+  tranche_num       VARCHAR2(100),
+  ipo_drive_flg     CHAR(1),
+  bal_amt           NUMBER,
+  contract_reg_type VARCHAR2(100),
+  ipo_flg           CHAR(1),
+  ipo_type          VARCHAR2(100),
+  provisions_amt    NUMBER,
+  contract_key      NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

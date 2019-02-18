@@ -1,0 +1,32 @@
+create table DM.CDC$PAY_SNAPSHOT
+(
+  snapshot_dt DATE not null,
+  send_dt     DATE default DATE'0000-01-01'
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  )
+nologging;
+alter table DM.CDC$PAY_SNAPSHOT
+  add constraint PK#PAY_SNAPSHOT primary key (SNAPSHOT_DT)
+  using index 
+  tablespace DM_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

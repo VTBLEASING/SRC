@@ -1,0 +1,23 @@
+create table DM.L$DM
+(
+  dt                TIMESTAMP(6),
+  proc_name         VARCHAR2(256),
+  step_name         VARCHAR2(256),
+  info              VARCHAR2(4000),
+  client_identifier VARCHAR2(256) default sys_context('USERENV','CLIENT_IDENTIFIER'),
+  session_user      VARCHAR2(256) default sys_context('USERENV','SESSION_USER')
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column DM.L$DM.info
+  is 'Detail info';
+

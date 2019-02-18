@@ -1,0 +1,45 @@
+create table DM.DM_OL_FLOW
+(
+  contract_key             NUMBER,
+  branch_key               NUMBER,
+  currency_key             NUMBER,
+  currency_key_supply      NUMBER,
+  snapshot_dt              DATE,
+  snapshot_cd              VARCHAR2(100),
+  insert_dt                DATE,
+  activity_type_key        NUMBER,
+  business_category_key    NUMBER,
+  client_key               NUMBER,
+  credit_rating_key        NUMBER,
+  grf_group_key            NUMBER,
+  group_key                NUMBER,
+  member_key               NUMBER,
+  rating_agency_key        NUMBER,
+  close_dt_month           DATE,
+  close_dt_year            DATE,
+  oper_start_dt            DATE,
+  l_plan                   NUMBER,
+  l_fact                   NUMBER,
+  k1                       NUMBER,
+  s_plan                   NUMBER,
+  s_fact                   NUMBER,
+  s_plan_rur               NUMBER,
+  supply_rur_amt_s_amt_f   NUMBER,
+  supply_rur_amt_s_amt_f_r NUMBER,
+  ost_amnt                 NUMBER,
+  ost_under                NUMBER,
+  overdue_amt              NUMBER,
+  ost_sup_amnt             NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

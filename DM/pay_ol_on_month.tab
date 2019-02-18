@@ -1,0 +1,25 @@
+create table DM.PAY_OL_ON_MONTH
+(
+  report_id          NUMBER,
+  con                VARCHAR2(100 CHAR),
+  branch_nam         VARCHAR2(1020 CHAR),
+  snapshot_dt        DATE,
+  client_nam         VARCHAR2(4000),
+  currency_letter_cd VARCHAR2(500),
+  auto_flg           VARCHAR2(500),
+  pay_dt             VARCHAR2(10) not null,
+  val                NUMBER,
+  rn                 NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

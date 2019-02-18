@@ -1,0 +1,22 @@
+create table DM.DM_CORRECT_DNIL
+(
+  contract_key      NUMBER,
+  correct_amt       NUMBER,
+  correct_dt        DATE,
+  correction_number NUMBER,
+  dnil              NUMBER,
+  delete_dt_1       DATE,
+  delete_dt_2       DATE
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+

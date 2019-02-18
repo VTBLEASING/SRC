@@ -1,0 +1,23 @@
+create table DM.DM_AVG_OVERDUE_AMT
+(
+  contract_id              NUMBER,
+  avg_overdue_amt          NUMBER,
+  oddtm                    DATE,
+  branch_key               NUMBER,
+  snapshot_cd              VARCHAR2(30),
+  avg_overdue_vat_free_amt NUMBER default 0 not null
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column DM.DM_AVG_OVERDUE_AMT.avg_overdue_vat_free_amt
+  is 'Средняя сумма просроченной задолженности без НДС';
+

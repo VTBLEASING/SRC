@@ -1,0 +1,64 @@
+create table DM.DM_DETAILS_DAILY
+(
+  contract_key     NUMBER not null,
+  cbc_desc         VARCHAR2(100),
+  payment_num      NUMBER,
+  plan_pay_dt_orig DATE,
+  pay_dt_orig      DATE,
+  plan_amt         NUMBER,
+  fact_pay_amt     NUMBER,
+  pre_pay          NUMBER,
+  after_pay        NUMBER,
+  overdue_days     NUMBER,
+  payment_item_key NUMBER,
+  currency_key     NUMBER,
+  pay_flg          CHAR(1),
+  snapshot_dt      DATE not null,
+  insert_dt        DATE not null,
+  off_schedule     CHAR(1),
+  rown             NUMBER
+)
+tablespace DM_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+comment on column DM.DM_DETAILS_DAILY.contract_key
+  is 'Ключ договора лизинга – ссылка на справочник договоров лизинга';
+comment on column DM.DM_DETAILS_DAILY.cbc_desc
+  is 'КБК';
+comment on column DM.DM_DETAILS_DAILY.payment_num
+  is '«Номер платежа» -порядковый номер очередного планового платежа, отсортированного по дате платежа ';
+comment on column DM.DM_DETAILS_DAILY.plan_pay_dt_orig
+  is 'Дата планового платежа ';
+comment on column DM.DM_DETAILS_DAILY.pay_dt_orig
+  is 'Дата фактического платежа';
+comment on column DM.DM_DETAILS_DAILY.plan_amt
+  is 'Сумма планового платежа';
+comment on column DM.DM_DETAILS_DAILY.fact_pay_amt
+  is 'Сумма фактического платежа';
+comment on column DM.DM_DETAILS_DAILY.pre_pay
+  is 'Остаток до оплаты (соответствует полю «Сумма к оплате»)';
+comment on column DM.DM_DETAILS_DAILY.after_pay
+  is 'Остаток после оплаты';
+comment on column DM.DM_DETAILS_DAILY.overdue_days
+  is 'Количество дней просрочки';
+comment on column DM.DM_DETAILS_DAILY.payment_item_key
+  is 'Ключ статьи платежа – ссылка на справочник статей платежей';
+comment on column DM.DM_DETAILS_DAILY.currency_key
+  is 'Валюта – ссылка на справочник валют';
+comment on column DM.DM_DETAILS_DAILY.pay_flg
+  is 'Признак непогашенного платежа: нет оплат или сумма остатка после всех оплат > 0 ';
+comment on column DM.DM_DETAILS_DAILY.snapshot_dt
+  is 'Отчетная дата';
+comment on column DM.DM_DETAILS_DAILY.insert_dt
+  is 'Дата и время расчета витрины';
+comment on column DM.DM_DETAILS_DAILY.off_schedule
+  is 'Метка «Вне графика»';
+
